@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config(); // 👈 ye line add karni zaroori hai
 
 const connectDB = async () => {
   try {
-    // 👇 Local MongoDB Compass Connection String
-    await mongoose.connect("mongodb://127.0.0.1:27017/salonDB");
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ MongoDB Connected Successfully (Local Compass)");
   } catch (error) {
     console.log("❌ MongoDB Connection Error:", error);
